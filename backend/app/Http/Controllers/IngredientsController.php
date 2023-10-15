@@ -10,7 +10,7 @@ class IngredientsController extends Controller
 {
     public function getAllIngredients(){
         $ingredients = Ingredients::all();
-        return view('recipes.index', compact('ingredients'));
+        return response()->json(['Ingredients' => $ingredients]);
     }
 
     public function getIngredientByName($name){

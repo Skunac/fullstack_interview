@@ -1,23 +1,36 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld/>
+      <v-container>
+        <v-card>
+          <v-card-actions>
+            <v-text-field
+            label="Enter title here"
+            variant="outlined">
+            </v-text-field>
+            <v-btn>Créer une recette</v-btn>
+          </v-card-actions>
+          <v-card-item>
+            <RecipesCards />
+          </v-card-item>
+        </v-card>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import RecipesCards from './components/RecipesCards.vue';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    RecipesCards,
   },
 
   data: () => ({
     //
   }),
 }
-</script>
+</script> 

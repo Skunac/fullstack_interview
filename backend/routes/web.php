@@ -15,17 +15,15 @@ use App\Http\Controllers\RecipesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::controller(RecipesController::class)->group(function () {
-    Route::get('/getallrecipes','getAllRecipes');
-    Route::get('/getrecipesbypreptime/{prep_time}', 'getRecipesByPrepTime');
-    Route::get('/getrecipesbyservings/{servings}', 'getRecipesByServings');
-    Route::get('/getrecipesbytotalpreptime/{total_prep_time}', 'getRecipesByTotalPrepTime');
-    Route::get('/getrecipesbycalories/{calories}', 'getRecipesByCalories');
-    Route::get('/getrecipesbytitle/{title}', 'getRecipesByTitle');
+    Route::get('/recipies', 'getAllRecipes');
+    Route::get('/insertdata/', 'insertData');
+    // Route::get('/getallrecipes','getAllRecipes')->middleware('cors');
+    // Route::get('/getrecipesbypreptime/{prep_time}', 'getRecipesByPrepTime');
+    // Route::get('/getrecipesbyservings/{servings}', 'getRecipesByServings');
+    // Route::get('/getrecipesbytotalpreptime/{total_prep_time}', 'getRecipesByTotalPrepTime');
+    // Route::get('/getrecipesbycalories/{calories}', 'getRecipesByCalories');
+    // Route::get('/getrecipesbytitle/{title}', 'getRecipesByTitle');
 });
 
 Route::controller(IngredientsController::class)->group(function () {

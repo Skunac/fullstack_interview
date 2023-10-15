@@ -13,15 +13,13 @@ class Recipes extends Model
         'title',
         'description',
         'instructions',
+        'ingredients',
         'prep_time',
         'cook_time',
         'total_time',
         'servings',
         'calories',
     ];
-    public $timestamps = true;
-    public function ingredient() {
-        return $this->belongsTo(Ingredients::class, 'ingredient_id');
-    }
+    public $timestamps = true;  
 
 }
