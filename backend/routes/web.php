@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IngredientsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipesController;
 
@@ -25,4 +26,9 @@ Route::controller(RecipesController::class)->group(function () {
     Route::get('/getrecipesbytotalpreptime/{total_prep_time}', 'getRecipesByTotalPrepTime');
     Route::get('/getrecipesbycalories/{calories}', 'getRecipesByCalories');
     Route::get('/getrecipesbytitle/{title}', 'getRecipesByTitle');
+});
+
+Route::controller(IngredientsController::class)->group(function () {
+    Route::get('/getallingredients', 'getAllIngredients');
+    Route::get('/getingredientbyname/{name}', 'getIngredientByName');
 });

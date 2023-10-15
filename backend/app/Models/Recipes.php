@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Recipes extends Model
 {
     use HasFactory;
+    protected $table = 'recipes';
     protected $fillable = [
         'title',
         'description',
-        'ingredients',
         'instructions',
         'prep_time',
         'cook_time',
@@ -19,4 +19,9 @@ class Recipes extends Model
         'servings',
         'calories',
     ];
+    public $timestamps = true;
+    public function ingredient() {
+        return $this->belongsTo(Ingredients::class, 'ingredient_id');
+    }
+
 }

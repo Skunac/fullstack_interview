@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipes;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 
 class RecipesController extends Controller
 {
     public function getAllRecipes(){
         $recipes = Recipes::all();
-        return response()->json(['Recipes' => $recipes]);
+        return view('recipes.index', compact('recipes'));
     }
 
     public function getRecipesByPrepTime($prep_time){

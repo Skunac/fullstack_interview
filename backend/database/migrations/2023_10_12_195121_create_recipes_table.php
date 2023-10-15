@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->text('ingredients');
+            $table->unsignedBigInteger('ingredient_id');   
+            $table->foreign('ingredient_id')->references('id')->on('ingredients');
             $table->text('instructions');
             $table->integer('prep_time')->nullable();
             $table->integer('cook_time')->nullable();
