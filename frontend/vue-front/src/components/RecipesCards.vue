@@ -44,7 +44,7 @@ export default {
     data() {
         return {
             show: false,
-            recipes: [] // Define 'recipes' as a data property
+            recipes: []
         };
     },
     created() {
