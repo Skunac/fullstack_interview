@@ -1,6 +1,7 @@
 <template>
-        <v-card v-for="recipe in recipes" :key="recipe.id">
-            <v-container class="py-3">
+    <div v-if="recipes.length > 0">
+        <v-card class="my-3" v-for="recipe in recipes" :key="recipe.id">
+            <v-container class="py-4">
                 <v-card-title>
                     {{ recipe.title }}
                 </v-card-title>
@@ -35,6 +36,12 @@
                 </v-expand-transition>
             </v-container>
         </v-card>
+    </div>
+    <div v-else>
+        <v-card>
+            <v-title>Aucune recette n'est disponible</v-title>
+        </v-card>
+    </div>
 </template>
 
 <script>
@@ -54,7 +61,6 @@ export default {
         instance.get('/recipies') // Update the API endpoint to fetch recipes
         .then(response => {
             this.recipes = response.data.Recipes; // Set 'this.recipes' with the fetched data
-            console.log(this.recipes);
         })
         .catch(error => {
             console.error('Error fetching recipes:', error);
