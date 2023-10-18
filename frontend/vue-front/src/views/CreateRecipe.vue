@@ -1,6 +1,7 @@
 <script setup>
+
 </script>
 
 <template>
-  <RouterView />
+    <h1>Create Recipe</h1>
 </template>
