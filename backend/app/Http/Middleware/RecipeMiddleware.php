@@ -16,14 +16,14 @@ class RecipeMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if(
-            $request->input('title')
-            && $request->input('description')
-            && $request->input('instructions')
-            && $request->input('ingredients')
-            && $request->input('prep_time')
-            && $request->input('cook_time')
-            && $request->input('servings')
-            && $request->input('calories')
+            $request->getContent('title')
+            && $request->getContent('description')
+            && $request->getContent('instructions')
+            && $request->getContent('ingredients')
+            && $request->getContent('prep_time')
+            && $request->getContent('cook_time')
+            && $request->getContent('servings')
+            && $request->getContent('calories')
         ) {
             return $next($request);
         }

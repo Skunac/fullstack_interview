@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\IngredientsController;
-use App\Http\Middleware\RecipeMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipesController;
 
@@ -19,7 +18,7 @@ use App\Http\Controllers\RecipesController;
 Route::controller(RecipesController::class)->group(function () {
     Route::get('/recipies', 'getAllRecipes');
     Route::post('/recipies/{id}', 'updateRecipe');
-    Route::put('/recipe/', 'addRecipe')->middleware(RecipeMiddleware::class);
+    Route::put('/recipe/', 'addRecipe');
     Route::delete('/recipe/{id}', 'deleteRecipe');
     // Route::get('/insertdata/', 'insertData');
     // Route::get('/getallrecipes','getAllRecipes')->middleware('cors');
