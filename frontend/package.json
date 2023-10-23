@@ -2,13 +2,26 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "author": "",
   "scripts": {
+    "serve": "vue-cli-service serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "main": "index.js",
   "dependencies": {
-    "@vue/cli": "^5.0.8"
-  }
+    "@mdi/font": "^7.3.67",
+    "@vue/cli": "^5.0.8",
+    "axios": "^1.5.1",
+    "roboto-fontface": "*",
+    "vue": "^3.3.6",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.3.22",
+    "webfontloader": "^1.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
+  },
+  "license": "ISC"
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\IngredientsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipesController;
+use App\Http\Middleware\checkAddRequestFull; 
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,8 @@ use App\Http\Controllers\RecipesController;
 
 Route::controller(RecipesController::class)->group(function () {
     Route::get('/recipies', 'getAllRecipes');
-    Route::post('/recipies/{id}', 'updateRecipe');
-    Route::put('/recipe/', 'addRecipe');
+    Route::post('/recipies', 'addRecipe')->Middleware([checkAddRequestFull::class]);
+    Route::put('/recipe/{id}', 'updateRecipe');
     Route::delete('/recipe/{id}', 'deleteRecipe');
     // Route::get('/insertdata/', 'insertData');
     // Route::get('/getallrecipes','getAllRecipes')->middleware('cors');

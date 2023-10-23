@@ -103,6 +103,11 @@ class RecipesController extends Controller
         return response()->json(['message'=> 'Recipe added'], 200);
     }
 
+    public function deleteRecipe(Request $request, $id){
+        Recipes::where('id',$id)->delete();
+        return response()->json(['message'=>'Recipe deleted'],204);
+    }
+
     public function insertData(){
         $recipesData = [
             [

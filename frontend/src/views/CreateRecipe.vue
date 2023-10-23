@@ -1,5 +1,6 @@
 <template>
     <v-container>
+        <RouterLink :to="{ path : '/'}"><v-btn class="mx-4" rounded="lg" size="x-large">Back to home</v-btn></RouterLink>
         <v-form>
             <v-text-field v-model="name" label="Name" variant="underlined"></v-text-field>
             <v-text-field v-model="description" label="Description" variant="underlined"></v-text-field>
@@ -54,9 +55,9 @@ export default {
                 calories: this.calories
             };
             console.log(data);
-            const url = 'http://localhost:8000/recipe/';
+            const url = 'http://localhost:8000/recipies/';
             axios({
-                method: 'PUT',
+                method: 'POST',
                 url: url,
                 data: data,
                 headers: {
@@ -64,7 +65,7 @@ export default {
                 }
             })
             .then(function (response) {
-                console.log('Response Data:', response.data);
+                window.location.href="/";
             })
             .catch(function (error) {
                 if (error.response) {
