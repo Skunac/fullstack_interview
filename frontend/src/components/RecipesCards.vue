@@ -32,6 +32,7 @@
                                 </div>
                             </v-card-text>
                         </v-card-item>
+                        <v-btn class="mx-4" rounded="sm" size="large" variant="tonal" @click="deleteRecipe(recipe.id)">Delete this recipe</v-btn>
                     </div>
                 </v-expand-transition>
             </v-container>
@@ -39,7 +40,7 @@
     </div>
     <div v-else>
         <v-card>
-            <v-title>Aucune recette n'est disponible</v-title>
+            <v-card-title>Aucune recette n'est disponible</v-card-title>
         </v-card>
     </div>
 </template>
@@ -67,6 +68,24 @@ export default {
         });
     },
     methods: {
+        deleteRecipe(id) {
+            const recipe = this.recipes.find(recipe => recipe.id === id);
+            if (recipe) {
+                const instance = axios.create({
+                    baseURL: 'http://localhost:8000'
+                });
+                instance.delete(`/recipe/${recipe.id}`)
+                .then(response => {
+                    if (response.status === 204) {
+                        // Remove the deleted recipe from the recipes array
+                        this.recipes = this.recipes.filter(r => r.id !== recipe.id);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting recipe:', error);
+                });
+            }
+        },
         toggleCard(id) {
             const recipe = this.recipes.find(recipe => recipe.id === id);
             if (recipe) {
