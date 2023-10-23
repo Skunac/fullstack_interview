@@ -33,6 +33,9 @@
                             </v-card-text>
                         </v-card-item>
                         <v-btn class="mx-4" rounded="sm" size="large" variant="tonal" @click="deleteRecipe(recipe.id)">Delete this recipe</v-btn>
+                        <router-link :to="{ name: 'modifyRecipe', query: { recipeData: JSON.stringify(recipe) }}">
+                            <v-btn class="mx-4" rounded="sm" size="large" variant="tonal">Modify this recipe</v-btn>
+                        </router-link>
                     </div>
                 </v-expand-transition>
             </v-container>
