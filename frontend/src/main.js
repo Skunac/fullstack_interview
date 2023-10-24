@@ -7,14 +7,13 @@ import ModifyRecipe from './views/ModifyRecipe.vue'
 import vuetify from './plugins/vuetify';
 
 const routes = [
-  {path: '/', component: HomeView},
-  {path: '/create', component: CreateRecipe},
-  {name: 'modifyRecipe', path: '/modify', component: ModifyRecipe, props:true}
+  {name: 'root', path: '/', component: HomeView},
+  {name: 'create', path: '/create', component: CreateRecipe},
+  {name: 'modifyRecipe', path: '/modify', component: ModifyRecipe}
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  mode: 'history',
   routes
 });
 

@@ -1,6 +1,8 @@
 <template>
     <v-container>
-        <RouterLink :to="{ path : '/'}"><v-btn class="mx-4" rounded="lg" size="x-large">Back to home</v-btn></RouterLink>
+        <div class="button-container">
+            <RouterLink :to="{ path : '/'}"><v-btn class="mx-4" rounded="lg" size="x-large">Back to home</v-btn></RouterLink>
+        </div>
         <v-form>
             <v-text-field v-model="name" label="Name" variant="underlined"></v-text-field>
             <v-text-field v-model="description" label="Description" variant="underlined"></v-text-field>
@@ -23,6 +25,18 @@
         </v-form>
     </v-container>
 </template>
+
+<style scoped>
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.back-button {
+    margin-top: 16px; /* Adjust margin as needed */
+}
+</style>
 
 <script>
 import axios from 'axios';
@@ -54,7 +68,6 @@ export default {
                 servings: this.servings,
                 calories: this.calories
             };
-            console.log(data);
             const url = 'http://localhost:8000/recipies/';
             axios({
                 method: 'POST',
