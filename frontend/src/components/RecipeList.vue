@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showRecipes && recipesToDisplay.length > 0">
+    <div v-if="recipesToDisplay.length > 0">
         <v-card class="my-3" v-for="recipe in recipesToDisplay" :key="recipe.id">
             <v-container class="py-4">
                 <v-card-title>
@@ -55,11 +55,6 @@
 import NoRecipesAvailable from './NoRecipesAvailable.vue';
 import NoRecipesMatch from './NoRecipesMatch.vue';
 export default {
-    data() {
-        return {
-            showRecipes: true
-        }
-    },
     props: {
         searchBarInput: String,
         recipes: Array
@@ -79,10 +74,10 @@ export default {
     },
     methods: {
         deleteRecipe(id) {
-            const recipe = this.recipes.find(recipe => recipe.id === id);
-            if (recipe) {
-                this.$emit('delete', recipe);
-                this.showRecipes = false;
+            const index = this.recipes.findIndex(recipe => recipe.id === id);
+            if (index !== -1) {
+                this.$emit('delete', this.recipes[index]);
+                this.recipes.splice(index, 1);
             }
         },
         toggleCard(id) {

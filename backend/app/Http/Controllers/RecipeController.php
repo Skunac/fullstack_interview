@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Validator;
 
 class RecipeController extends Controller
 {
+    // returns every rows of the recipes table
     public function getAllRecipes(){
         $recipes = Recipe::all();
         return response()->json(['Recipes' => $recipes]);
     }
 
+    //checks if a request to add a row in the recipes table is valid, if it is it adds it
     public function addRecipe(Request $request){
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
@@ -51,6 +53,7 @@ class RecipeController extends Controller
         }
     }
 
+    //checks if a request to update a row in the recipes table is valid, if it is it updates it
     public function updateRecipe(Request $request, int $id){
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
@@ -89,6 +92,7 @@ class RecipeController extends Controller
         }
     }
 
+    //checks if it's possible to delete the recipe, if it is it deletes its row from the recipes table
     public function deleteRecipe(Request $request, $id){
         $recipe = Recipe::find($id);
         if ($recipe) {

@@ -10,15 +10,15 @@
             <v-text-field v-model="ingredients" label="Ingredients" variant="underlined"></v-text-field>
             <div>
                 <div class="text-caption">Preparation time</div>
-                <v-slider v-model="prep_time" step="5" min="0" max="60" show-ticks></v-slider>
+                <v-slider v-model="prep_time" step="5" min="0" max="60" thumb-label show-ticks></v-slider>
             </div>
             <div>
                 <div class="text-caption">Cooking time</div>
-                <v-slider v-model="cook_time" step="5" min="0" max="60"  show-ticks></v-slider>
+                <v-slider v-model="cook_time" step="5" min="0" max="60"  thumb-label show-ticks></v-slider>
             </div>
             <div>
                 <div class="text-caption">Servings</div>
-                <v-slider v-model="servings" step="1" min="0" max="12"  show-ticks></v-slider>
+                <v-slider v-model="servings" step="1" min="0" max="12"  thumb-label show-ticks></v-slider>
             </div>
             <v-text-field v-model="calories" label="Calories" variant="underlined"></v-text-field>
             <v-btn block @click="submitForm">Submit</v-btn>
