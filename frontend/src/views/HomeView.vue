@@ -31,7 +31,7 @@ export default {
     },
     created() {
     const instance = axios.create({baseURL: 'http://localhost:8000'});
-        instance.get('/recipies')
+        instance.get('/api/recipies')
         .then((response) => {
             this.recipes = response.data.Recipes;
         })
@@ -44,16 +44,20 @@ export default {
         const instance = axios.create({
                 baseURL: 'http://localhost:8000'
             });
-            instance.delete(`/recipe/${recipe.id}`)
+            instance.delete(`/api/recipe/${recipe.id}`)
             .then(response => {
                 if (response.status === 204) {
-                    this.recipes = this.recipes.filter(r=> r.id !== recipe.id)
+                    this.recipes = this.recipes.filter(r=> r.id !== recipe.id);
                 }
             })
             .catch(error => {
                 console.error('Error deleting recipe:', error);
             });
     }
+    },
+    components : {
+        RecipeList,
+        NoRecipesAvailable
     }
 };
 </script>

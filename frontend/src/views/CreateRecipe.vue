@@ -68,7 +68,7 @@ export default {
                 servings: this.servings,
                 calories: this.calories
             };
-            const url = 'http://localhost:8000/recipies/';
+            const url = 'http://localhost:8000/api/recipies/';
             axios({
                 method: 'POST',
                 url: url,

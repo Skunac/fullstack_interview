@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::controller(RecipeController::class)->group(function () {
+    Route::get('/recipies', 'getAllRecipes');
+    Route::post('/recipies', 'addRecipe');
+    Route::put('/recipe/{id}', 'updateRecipe');
+    Route::delete('/recipe/{id}', 'deleteRecipe');
 });
