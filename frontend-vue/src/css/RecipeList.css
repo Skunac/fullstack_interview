@@ -5,3 +5,17 @@
 #deleteBtn {
     background-color: #FF5252;
 }
+
+.recipe-subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingredient-text {
+    max-width: 70vh;
+}
+
+.total-time {
+    min-width: 10vh; /* Set a minimum width for total_time to keep it consistent */
+}

@@ -62,7 +62,8 @@ export default {
                 servings: this.servings,
                 calories: this.calories
             };
-            const url = 'https://antoineduchesne.fr/api/recipies/';
+            // const url = 'http://localhost:8000/api/recipies';
+            const url = 'http://backend.antoineduchesne.fr/api/recipies';
             axios({
                 method: 'POST',
                 url: url,

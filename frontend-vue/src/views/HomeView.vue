@@ -35,7 +35,9 @@ export default {
     },
     created() {
         document.title= "Recipes";
-        const instance = axios.create({baseURL: 'https://antoineduchesne.fr/'});
+        const instance = axios.create({
+            // baseURL: 'http://localhost:8000'});
+            baseURL: 'http://backend.antoineduchesne.fr'});
         instance.get('/api/recipies')
         .then((response) => {
             this.recipes = response.data.Recipes;
@@ -48,7 +50,8 @@ export default {
     handleRecipeDelete(recipe){
         const index = this.recipes = this.recipes.filter(r=> r.id !== recipe.id);
         const instance = axios.create({
-                baseURL: 'https://antoineduchesne.fr/'
+                baseURL: 'http://backend.antoineduchesne.fr/'
+                // baseURL: 'http://localhost:8000'
             });
             instance.delete(`/api/recipe/${recipe.id}`)
             .then(response => {

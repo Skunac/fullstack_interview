@@ -4,25 +4,36 @@
             <v-container class="py-4 cards">
                 <v-card-title>
                     {{ recipe.title }}
-                </v-card-title>
-                <v-card-subtitle>
-                    {{ recipe.ingredients }}
-                </v-card-subtitle>
+                    </v-card-title>
+                    <div class="recipe-subtitle">
+                    <div class="recipe-ingredients">
+                        <v-card-subtitle class="ingredient-text">
+                        {{ recipe.ingredients }}
+                        </v-card-subtitle>
+                    </div>
+                    <div>
+                        <v-card-subtitle class="total-time">
+                        {{ recipe.total_time }} min
+                        </v-card-subtitle>
+                    </div>
+                    </div>
                 <v-btn :icon="getIcon(recipe.id)" @click="toggleCard(recipe.id)"></v-btn>
                 <v-expand-transition class="py-3">
                     <div v-show="recipe.show">  
                         <v-divider></v-divider>
                         <v-card-item>
-                            {{ recipe.description }}
+                            <v-card-text>
+                                {{ recipe.description }}
+                            </v-card-text>
+                            <v-card-text>
+                                {{ recipe.instructions }}
+                            </v-card-text>
                             <v-card-text>
                             <div>
-                                Prep time: {{ recipe.prep_time }}
+                                Preparation: {{ recipe.prep_time }}
                             </div>
                             <div>
-                                Cook time: {{ recipe.cook_time }}   
-                            </div>
-                            <div>
-                                Total time: {{ recipe.total_time }}
+                                Cooking: {{ recipe.cook_time }}   
                             </div>
                             <div>
                                 Servings: {{ recipe.servings }}
@@ -32,10 +43,10 @@
                             </div>
                             </v-card-text>
                         </v-card-item>
-                        <v-btn class="mx-4" rounded="sm" size="large" variant="tonal" id="deleteBtn" @click="deleteRecipe(recipe.id)">Delete this recipe</v-btn>
                         <router-link :to="{ name: 'modifyRecipe', query: { recipeData: JSON.stringify(recipe) }}">
                             <v-btn class="mx-4" rounded="sm" size="large" variant="tonal">Modify this recipe</v-btn>
                         </router-link>
+                        <v-btn class="mx-4" rounded="sm" size="large" variant="tonal" id="deleteBtn" @click="deleteRecipe(recipe.id)">Delete this recipe</v-btn>
                     </div>
                 </v-expand-transition>
             </v-container>

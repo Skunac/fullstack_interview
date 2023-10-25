@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         submitForm(){
-            const url = `http://localhost:8000/api/recipe/${this.recipe.id}`;
+            const url = `http://backend.antoineduchesne.fr/${this.recipe.id}`;
             axios({
                 method: 'PUT',
                 url: url,
