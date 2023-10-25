@@ -21,16 +21,4 @@ Route::controller(RecipesController::class)->group(function () {
     Route::post('/recipies', 'addRecipe')->Middleware([checkAddRequestFull::class]);
     Route::put('/recipe/{id}', 'updateRecipe');
     Route::delete('/recipe/{id}', 'deleteRecipe');
-    // Route::get('/insertdata/', 'insertData');
-    // Route::get('/getallrecipes','getAllRecipes')->middleware('cors');
-    // Route::get('/getrecipesbypreptime/{prep_time}', 'getRecipesByPrepTime');
-    // Route::get('/getrecipesbyservings/{servings}', 'getRecipesByServings');
-    // Route::get('/getrecipesbytotalpreptime/{total_prep_time}', 'getRecipesByTotalPrepTime');
-    // Route::get('/getrecipesbycalories/{calories}', 'getRecipesByCalories');
-    // Route::get('/getrecipesbytitle/{title}', 'getRecipesByTitle');
-});
-
-Route::controller(IngredientsController::class)->group(function () {
-    Route::get('/getallingredients', 'getAllIngredients');
-    Route::get('/getingredientbyname/{name}', 'getIngredientByName');
 });
