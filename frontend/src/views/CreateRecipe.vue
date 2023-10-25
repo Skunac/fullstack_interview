@@ -1,12 +1,12 @@
 <template>
-    <v-container>
+    <v-card  id="card" class="my-10 mx-auto w-50 px-5 py-5 elevation-10 rounded-lg " min-width="400" min-height="750">
         <div class="button-container">
-            <RouterLink :to="{ path : '/'}"><v-btn class="mx-4" rounded="lg" size="x-large">Back to home</v-btn></RouterLink>
+            <RouterLink :to="{ path : '/'}"><v-btn class="mx-4" rounded="lg" size="x-large" color="grey-lighten-2">Back to home</v-btn></RouterLink>
         </div>
         <v-form>
-            <v-text-field v-model="name" label="Name" variant="underlined"></v-text-field>
+            <v-text-field v-model="name" label="Title" variant="underlined"></v-text-field>
             <v-text-field v-model="description" label="Description" variant="underlined"></v-text-field>
-            <v-textarea v-model="instructions" label="Instructions" variant="solo-filled"></v-textarea>
+            <v-textarea v-model="instructions" label="Instructions" bg-color="grey-lighten-2" variant="solo-filled"></v-textarea>
             <v-text-field v-model="ingredients" label="Ingredients" variant="underlined"></v-text-field>
             <div>
                 <div class="text-caption">Preparation time</div>
@@ -21,21 +21,13 @@
                 <v-slider v-model="servings" step="1" min="0" max="12"  thumb-label show-ticks></v-slider>
             </div>
             <v-text-field v-model="calories" label="Calories" variant="underlined"></v-text-field>
-            <v-btn block @click="submitForm">Submit</v-btn>
+            <v-btn block @click="submitForm" color="grey-lighten-2">Submit</v-btn>
         </v-form>
-    </v-container>
+    </v-card>
 </template>
 
-<style scoped>
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.back-button {
-    margin-top: 16px; /* Adjust margin as needed */
-}
+<style>
+@import '../css/CreateRecipe.css';
 </style>
 
 <script>

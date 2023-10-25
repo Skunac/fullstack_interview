@@ -1,9 +1,12 @@
 <template>
-    <v-container>
+    <v-card  id="card" class="my-10 mx-auto w-50 px-5 py-5 elevation-10 rounded-lg " min-width="400" min-height="750">
+        <div class="button-container">
+            <RouterLink :to="{ path : '/'}"><v-btn class="mx-4" rounded="lg" size="x-large" color="grey-lighten-2">Back to home</v-btn></RouterLink>
+        </div>
         <v-form>
-            <v-text-field v-model="recipe.title" label="Name" variant="underlined"></v-text-field>
+            <v-text-field v-model="recipe.title" label="Title" variant="underlined"></v-text-field>
             <v-text-field v-model="recipe.description" label="Description" variant="underlined"></v-text-field>
-            <v-textarea v-model="recipe.instructions" label="Instructions" variant="solo-filled"></v-textarea>
+            <v-textarea v-model="recipe.instructions" label="Instructions" variant="solo-filled" bg-color="grey-lighten-2"></v-textarea>
             <v-text-field v-model="recipe.ingredients" label="Ingredients" variant="underlined"></v-text-field>
             <div>
                 <div class="text-caption">Preparation time</div>
@@ -18,9 +21,9 @@
                 <v-slider v-model="recipe.servings" step="1" min="0" max="12"  show-ticks></v-slider>
             </div>
             <v-text-field v-model="recipe.calories" label="Calories" variant="underlined"></v-text-field>
-            <v-btn block @click="submitForm">Submit</v-btn>
+            <v-btn block @click="submitForm" color="grey-lighten-2">Submit</v-btn>
         </v-form>
-    </v-container>
+    </v-card>
 </template>
 
 <script>

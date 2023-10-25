@@ -3,10 +3,10 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-    <v-container>
+    <v-card id="card" class="my-10 mx-auto w-50 px-5 py-5 elevation-10 rounded-lg" min-width="400" min-height="750">
         <v-row>
             <v-text-field v-model="searchBarInput" prepend-icon="mdi-magnify" single-line></v-text-field>
-            <RouterLink :to="{ path : '/create'}"><v-btn class="mx-4" rounded="lg" size="x-large">Create a recipe</v-btn></RouterLink>
+            <RouterLink :to="{ path : '/create'}"><v-btn class="mx-4" rounded="lg" color="grey-lighten-2" size="x-large">Create a recipe</v-btn></RouterLink>
         </v-row>
             <div v-if="recipes.length > 0">
                 <RecipeList :recipes="recipes" :searchBarInput="searchBarInput" @delete="handleRecipeDelete"/>
@@ -14,8 +14,12 @@ import { RouterLink } from 'vue-router';
             <div v-else>
                 <NoRecipesAvailable />
             </div>
-    </v-container>
+    </v-card>
 </template>
+
+<style>
+    @import '../css/HomeView.css';
+</style>
 
 <script>
 import axios from 'axios';

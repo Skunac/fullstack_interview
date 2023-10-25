@@ -1,7 +1,7 @@
 <template>
     <div v-if="recipesToDisplay.length > 0">
         <v-card class="my-3" v-for="recipe in recipesToDisplay" :key="recipe.id">
-            <v-container class="py-4">
+            <v-container class="py-4  cards">
                 <v-card-title>
                     {{ recipe.title }}
                 </v-card-title>
@@ -32,7 +32,7 @@
                             </div>
                             </v-card-text>
                         </v-card-item>
-                        <v-btn class="mx-4" rounded="sm" size="large" variant="tonal" color="red-darken-1" @click="deleteRecipe(recipe.id)">Delete this recipe</v-btn>
+                        <v-btn class="mx-4" rounded="sm" size="large" variant="tonal" id="deleteBtn" @click="deleteRecipe(recipe.id)">Delete this recipe</v-btn>
                         <router-link :to="{ name: 'modifyRecipe', query: { recipeData: JSON.stringify(recipe) }}">
                             <v-btn class="mx-4" rounded="sm" size="large" variant="tonal">Modify this recipe</v-btn>
                         </router-link>
@@ -51,6 +51,10 @@
     </div>
 </template>
 
+<style>
+    @import '../css/RecipeList.css';
+</style>
+
 <script>
 import NoRecipesAvailable from './NoRecipesAvailable.vue';
 import NoRecipesMatch from './NoRecipesMatch.vue';
@@ -64,7 +68,7 @@ export default {
         recipesToDisplay() {
             if (this.searchBarInput.trim() !== "") {
                 return this.recipes.filter((recipe) => {
-                    return recipe.title.toLowerCase().includes(this.searchBarInput.toLowerCase());
+                    return recipe.ingredients.toLowerCase().includes(this.searchBarInput.toLowerCase());
                 });
             }
             else {
