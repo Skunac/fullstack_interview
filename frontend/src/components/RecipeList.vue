@@ -1,7 +1,7 @@
 <template>
     <div v-if="recipesToDisplay.length > 0">
         <v-card class="my-3" v-for="recipe in recipesToDisplay" :key="recipe.id">
-            <v-container class="py-4  cards">
+            <v-container class="py-4 cards">
                 <v-card-title>
                     {{ recipe.title }}
                 </v-card-title>

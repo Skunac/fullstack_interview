@@ -39,6 +39,7 @@ export default {
         if (recipe) {
             this.recipe = JSON.parse(recipe);
         }
+        document.title= "Recipe modification";
     },
     methods: {
         submitForm(){

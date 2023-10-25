@@ -47,7 +47,9 @@ export default {
         }
 
     },
-
+    created() {
+        document.title= "Recipe creation";
+    },
     methods: {
         submitForm() {
             const data = {

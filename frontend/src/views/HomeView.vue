@@ -34,7 +34,8 @@ export default {
     };
     },
     created() {
-    const instance = axios.create({baseURL: 'http://localhost:8000'});
+        document.title= "Recipes";
+        const instance = axios.create({baseURL: 'http://localhost:8000'});
         instance.get('/api/recipies')
         .then((response) => {
             this.recipes = response.data.Recipes;
